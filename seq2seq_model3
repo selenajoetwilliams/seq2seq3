@@ -56,7 +56,7 @@ def readLangs(lang1, lang2, reverse=False):
     print("Reading lines...")
 
     # read the file & spli into lines
-    lines = open("Users/selenawilliams/Desktop/Tech/seq2seq3/data/%s-%s.txt" % (lang1, lang2), encoding='utf-8').\
+    lines = open("/Users/selenawilliams/Desktop/Tech/seq2seq3/data/%s-%s.txt" % (lang1, lang2), encoding='utf-8').\
         read().strip().split('\n')
 
     # split every line into pairs & normalize
