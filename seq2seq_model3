@@ -406,6 +406,10 @@ trainIters(encoder1, attn_decoder1, 75000, print_every=5000)
 
 evaluateRandomly(encoder1, attn_decoder1)
 
+output_words, attentions = evaluate(
+    encoder1, attn_decoder1, "je suis trop froid .")
+plt.matshow(attentions.numpy())
+
 # visualizing attention
 # this allows you to see where the network is focused at each time step (??)
 def showAttention(input_sentence, output_words, attentions):
