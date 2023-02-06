@@ -350,7 +350,7 @@ class AttnDecoderRNN(nn.Module):
 #
 
 def indexesFromSentence(lang, sentence):
-    return [lang.word2index[word] for word in sentence.split(' ')]
+    return [lang.word2index[word] for word in sentence.split(' ')] # I stopped line by line debugging here
 
 
 def tensorFromSentence(lang, sentence):
@@ -409,8 +409,11 @@ def train(input_tensor, target_tensor, encoder, decoder, encoder_optimizer, deco
     loss = 0
 
     for ei in range(input_length):
+        print(" input length is ", input_length)
         encoder_output, encoder_hidden = encoder(
             input_tensor[ei], encoder_hidden)
+        print("index is", ei, "\n")
+        
         encoder_outputs[ei] = encoder_output[0, 0]
 
     decoder_input = torch.tensor([[SOS_token]], device=device)
